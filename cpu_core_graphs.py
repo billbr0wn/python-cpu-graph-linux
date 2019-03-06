@@ -32,14 +32,16 @@ class _Window_(QMainWindow):
 
 
 
-        self.effect = QGraphicsDropShadowEffect()
+        
 #-----------------------drop shadow ---------------o
+
+        self.effect = QGraphicsDropShadowEffect()
         
         self.effect = QGraphicsDropShadowEffect()
         self.effect.setBlurRadius(10)
         self.effect.setXOffset(5)
         self.effect.setYOffset(-5)
-        self.effect.setColor(QColor.fromRgb(20,20,20, 50))
+        self.effect.setColor(Qt.black)
 
 #-------------timer-----------------
 
@@ -145,13 +147,13 @@ class _Window_(QMainWindow):
         
         
         self.chart.setTitle("cpu cores");
-        self.chart_2.setTitle("")
+        self.chart_2.setTitle("cpu cores")
         #self.chart.createDefaultAxes()
         
 
         self.chart.axisX = QValueAxis()
         self.chart_2.axisX = QValueAxis()
-        #Sself.chart.axisX.setRange(0,1);
+        #self.chart.axisX.setRange(0,1);
         #self.chart.axisX.setTickCount(0);
 
         self.chart.setAxisX(self.chart.axisX)
@@ -224,13 +226,23 @@ class _Window_(QMainWindow):
 
         self.chart.removeAllSeries() #clear graph readout before next data entry
         self.chart_2.removeAllSeries()
+
+
+
+
         
         self.cpu_percentage_core0 = self.cpu_cores[0]#cpu core 0
         self.tick_cpu0_7 = self.cpu_percentage_core0
-
+        print('self.tick_cpu0_7 ', self.tick_cpu0_7)
         self.cpu_percentage_core1 = self.cpu_cores[1]#cpu core 1
         self.tick_cpu1_7 = self.cpu_percentage_core1
-                        
+        print('self.tick_cpu1_7 ', self.tick_cpu1_7)
+
+
+
+
+
+        
         self.tick_cpu0_0 = self.tick_cpu0_1#sequence values
         self.tick_cpu0_1 = self.tick_cpu0_2
         self.tick_cpu0_2 = self.tick_cpu0_3
@@ -329,12 +341,12 @@ class _Window_(QMainWindow):
         self.window2.resize(250, 150);
 
         self.move(1700,600)
-        self.window2.move(1700,607)
+        self.window2.move(1700,600)
 
-        #self.setGraphicsEffect(self.effect)
+        self.setGraphicsEffect(self.effect)
         #self.window2.setGraphicsEffect(self.effect)
 
-        self.setWindowTitle('yellow cpu')
+##        self.setWindowTitle('My Window')
 ##        self.window2.setWindowTitle('My Window 2')
 
         self.show()
