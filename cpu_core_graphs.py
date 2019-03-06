@@ -66,26 +66,26 @@ class _Window_(QMainWindow):
 
 #------------cpu core 0 values-----------------o
         
-        self.tick_cpu0_0 = (0)
-        self.tick_cpu0_1 = (0)
-        self.tick_cpu0_2 = (0)
-        self.tick_cpu0_3 = (0)
-        self.tick_cpu0_4 = (0)
-        self.tick_cpu0_5 = (0)
-        self.tick_cpu0_6 = (0)
-        self.tick_cpu0_7 = (0)
+        self.tick_cpu0_0 = (100)
+        self.tick_cpu0_1 = (100)
+        self.tick_cpu0_2 = (100)
+        self.tick_cpu0_3 = (100)
+        self.tick_cpu0_4 = (100)
+        self.tick_cpu0_5 = (100)
+        self.tick_cpu0_6 = (100)
+        self.tick_cpu0_7 = (100)
 
 
 #------------cpu core 1 values-----------------o
 
-        self.tick_cpu1_0 = (0)
-        self.tick_cpu1_1 = (0)
-        self.tick_cpu1_2 = (0)
-        self.tick_cpu1_3 = (0)
-        self.tick_cpu1_4 = (0)
-        self.tick_cpu1_5 = (0)
-        self.tick_cpu1_6 = (0)
-        self.tick_cpu1_7 = (0)
+        self.tick_cpu1_0 = (100)
+        self.tick_cpu1_1 = (100)
+        self.tick_cpu1_2 = (100)
+        self.tick_cpu1_3 = (100)
+        self.tick_cpu1_4 = (100)
+        self.tick_cpu1_5 = (100)
+        self.tick_cpu1_6 = (100)
+        self.tick_cpu1_7 = (100)
         
  
 #---------------create lines for graph-----------------o
@@ -132,7 +132,6 @@ class _Window_(QMainWindow):
         self.series.setName("Batman")
         self.series.setBorderColor(QColor.fromRgb(25,25,25, 5)) #color for center line
         self.series_2.setBorderColor(QColor.fromRgb(25,25,25, 5))
-        #self.series.setColor(QColor.fromRgb(55,205,155, 90))
 
 
         
@@ -148,8 +147,7 @@ class _Window_(QMainWindow):
         
         self.chart.setTitle("cpu cores");
         self.chart_2.setTitle("cpu cores")
-        #self.chart.createDefaultAxes()
-        
+
 
         self.chart.axisX = QValueAxis()
         self.chart_2.axisX = QValueAxis()
@@ -162,10 +160,7 @@ class _Window_(QMainWindow):
         self.chart.addAxis(self.chart.axisX, Qt.AlignBottom);
         self.chart_2.addAxis(self.chart_2.axisX, Qt.AlignBottom);
 
-        #self.chart.axisX.setShadesBrush(QColor.fromRgb(25,225,25, 80))        
-        #self.chart.axisX.setShadesColor(QColor.fromRgb(125,25,125, 80))
-        #self.chart.axisX.setShadesVisible(False)#color for grid squares
-        
+
         self.chart.axisY = QValueAxis()
         self.chart_2.axisY = QValueAxis()
         #self.chart.axisY.setRange(0, 100);
@@ -177,12 +172,11 @@ class _Window_(QMainWindow):
         self.chart.addAxis(self.chart.axisY, Qt.AlignRight);
         self.chart_2.addAxis(self.chart_2.axisY, Qt.AlignRight);
 
-        #self.chart.axisY.setShadesBrush(QColor.fromRgb(25,225,25, 80))
-        #self.chart.axisX.setShadesColor(QColor.fromRgb(25,225,25, 80))
-        #self.chart.axisY.setShadesVisible(False)#color for grid squares
 
+        self.chart.setMargins(QMargins(-65,0,0,0))#how much of chart is visible
+        self.chart_2.setMargins(QMargins(-65,0,0,0))#how much of chart is visible
 
-        #self.chart.setAnimationOptions(QChart.GridAxisAnimations)
+        
         self.chart.setBackgroundBrush(QColor.fromRgb(25,25,25, 0))# transparent background
         #total transparency for 2nd graph background
         self.chart_2.setBackgroundBrush(QColor.fromRgb(25,25,25, 0))
@@ -190,9 +184,7 @@ class _Window_(QMainWindow):
         self.chart.legend().setVisible(False);#turn off graph legend
         self.chart_2.legend().setVisible(False);
        
-##        self.chart.setDropShadowEnabled(True) #shadow under window
-##        self.chart_2.setDropShadowEnabled(False)
-        
+
         self.chart.setPlotAreaBackgroundVisible(False)
         self.chart_2.setPlotAreaBackgroundVisible(False)
         
@@ -282,7 +274,7 @@ class _Window_(QMainWindow):
 
 #--------------add values for cpu-0 to chart-----------------------o
 
-        self.series_cpu0.append(0, self.tick_cpu0_0);#load values
+        self.series_cpu0.append(0, 100);#load values
         self.series_cpu0.append(1, self.tick_cpu0_1);
         self.series_cpu0.append(2, self.tick_cpu0_2);
         self.series_cpu0.append(3, self.tick_cpu0_3);
@@ -293,7 +285,7 @@ class _Window_(QMainWindow):
 
 #--------------add values for cpu-1 to chart-----------------------o
         
-        self.series_cpu1.append(0, self.tick_cpu1_0);
+        self.series_cpu1.append(0, 100);
         self.series_cpu1.append(1, self.tick_cpu1_1);
         self.series_cpu1.append(2, self.tick_cpu1_2);
         self.series_cpu1.append(3, self.tick_cpu1_3);
